@@ -1,0 +1,41 @@
+import java.util.Scanner;  
+class Main{  
+  public static void main(String args[]){  
+    
+    Scanner j = new Scanner(System.in);  
+    
+    System.out.println("Enter a number: ");  
+
+    final String re = "\u001B[0m";
+  
+    final String y = "\u001B[33m";
+
+    final String b = "\u001B[34m";
+
+    final String p = "\u001B[35m";
+
+    
+    
+    int x = j.nextInt(); 
+    
+    System.out.println(); 
+    
+    for (int i = 1; i <= x; i++){  
+       if (i%3==0 && i%5==0){   
+        System.out.println(y+"FizzBuzz"+re);  
+       }   
+         else if (i%3==0){ 
+          System.out.println(b+"Fizz"+re);  
+       }   
+         else if (i%5==0){   
+          System.out.println(p+"Buzz"+re);  
+       }   
+          else{   
+            System.out.println(i);  
+            
+      }  
+        j.close();  
+    }  
+  } 
+
+}
