@@ -1,0 +1,28 @@
+import java.util.Scanner;
+class Main {
+  public static void main(String[] args) {
+    Scanner i = new Scanner(System.in);
+    int cents;
+    System.out.println("Enter your user: ");
+    String user =i.nextLine();
+    System.out.println("Enter a number: ");
+    cents = i.nextInt();
+    System.out.println(user+" the value is "+sub(cents));
+  }
+
+
+
+ public static int sub(int cents){
+   String c = Integer.toString(cents);
+
+   if (c.length()<2){
+     return 0;
+   }
+   else{
+   String r = c.substring(c.length()-2);
+   int r1 = Integer.valueOf(r);
+   int noq = r1/25;
+   return noq;
+   }
+ }
+}
