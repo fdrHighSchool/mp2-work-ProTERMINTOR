@@ -1,0 +1,170 @@
+import java.util.Scanner;
+public class Main {
+   public static void main(String[] args) {
+    Scanner i = new Scanner(System.in);
+     System.out.println("Pick one of the given examples-->e , 0 , 1 , 2 , 3 , 4 , 5 , 6 , 7: ");
+     String e=i.nextLine();
+     if (e.equals("e")){
+       System.out.println("Enter a word: ");
+       String s1=i.nextLine();
+       System.out.println("Pick a letter from "+" ("+s1+") "+" to remove: ");
+       String ss=i.nextLine();
+       System.out.println("the length is "+len(s1));
+       System.out.println("the indexof is "+i(s1, ss));
+     }
+     else if (e.equals("1")){
+       System.out.println("Enter a word(abc): ");
+       String s1=i.nextLine();
+       System.out.println("Enter a another word(cat): ");
+       String s2=i.nextLine();
+       System.out.println("the substring is "+example1(s1, s2));
+     }
+     else if (e.equals("2")){
+        System.out.println("Enter a word: ");
+        String s1=i.nextLine();
+        System.out.println("Enter the first index of ("+s1+"): ");
+        int i1=i.nextInt();
+        System.out.println("Enter the second index of ("+s1+"): ");
+        int i2=i.nextInt();
+        System.out.println("the substring is "+example2(s1, i1, i2));
+     }
+      else if (e.equals("3")){
+        System.out.println("Enter a word: ");
+        String s1=i.nextLine();
+        System.out.println("Enter the number of repetitions for ("+s1+"): ");
+        int n=i.nextInt();
+        System.out.println("the substring is "+example3(s1, n));
+     }
+     else if (e.equals("4")){
+       System.out.println("Enter a word:");
+       String s1=i.nextLine();
+       System.out.println("There is "+example4(s1)+" hi in the word "+s1);
+     }
+     else if (e.equals("5")){
+       System.out.println("Enter a word:");
+       String s1=i.nextLine();
+       System.out.println("What do you want to remove from("+s1+"):");
+       String r=i.nextLine();
+       System.out.println("The word is "+example5(s1, r));
+     }
+     else if (e.equals("6")){
+       System.out.println("Enter a word(it can contain numbers):");
+       String s1=i.nextLine();
+       System.out.println("The sum of the digits in ("+s1+") is "+example6(s1));
+     }
+     else if (e.equals("7")){
+       System.out.println("Enter a word:");
+       String s1=i.nextLine();
+       System.out.println("The sarcastic version of ("+s1+") is "+example7(s1));
+     }
+     else if (e.equals("0")){
+       System.out.println("Enter a word:");
+       String s1=i.nextLine();
+       System.out.println("Enter a second word:");
+       String s2=i.nextLine();
+       System.out.println("Enter a third word:");
+       String s3=i.nextLine();
+       System.out.println("It is "+mm(s1,s2,s3));
+     }
+     else {
+       System.out.println("Re-run the program and try again as punishment for not entering one of the given examples!");
+     }
+    
+   }
+
+   public static int len(String s1){
+    return s1.length();
+  }
+
+   public static int i(String s1, String ss){
+     return s1.indexOf(ss);
+   }
+
+  public static String example2(String s1, int i1, int i2){
+    return s1.substring(i1,i2);
+  }
+  
+  public static String example1(String s1, String s2) {
+   if (s1.length() == 0 || s2.length() == 0)
+    return s1+s2;
+  if ((s1.substring(s1.length() - 1, s1.length())).equals(s2.substring(0,1)))
+    return s1 + s2.substring(1,s2.length());
+  else
+    return s1+s2;
+   }
+  
+  public static String example3(String s1, int n) {
+    String aa ="";
+    int len = s1.length();
+    for (int i = 0; i < n; i++) {
+      aa += s1.substring(len - n, len);
+    }
+    return aa;
+  }
+  
+  public static int example4(String s1){
+     int count=0;
+  
+     for(int i =0;i<= s1.length()-2;i++){
+      
+       if(s1.substring(i, i+2).equals("hi")){
+         count++;
+       }
+      }
+     return count;
+   }
+  
+  public static String example5(String s1, String r) {
+      String result = "";
+      for (int i = 0; i < s1.length(); i += 1) {
+        if ((i <= s1.length() - r.length()) && s1.substring(i, i + 
+           r.length()).equalsIgnoreCase(r)) {
+              i += r.length() - 1;
+          } else {
+              result += s1.charAt(i);
+          }
+      }
+      return result;
+    }
+
+  public static int example6(String s1) {
+    int d=0;
+    for (int i = 0; i < s1.length(); i++) {
+      if (Character.isDigit(s1.charAt(i))) {
+        String t = s1.substring(i,i+1);
+        d += Integer.parseInt(t);
+      }
+    }
+    return d;
+  }
+
+  public static String example7(String s1){
+     String result="";
+     for(int i=0; i<s1.length(); i++){
+       String c=s1.substring(i, i+1);
+       char cc = s1.charAt(i);
+        result+=Character.toUpperCase(cc);
+        result+=Character.toLowerCase(cc);
+       }
+       return result;
+      }
+    
+ public static String mm(String s1, String s2, String s3){
+     String ss="";
+     for(int i =0; i<s1.length(); i++){
+       String c =s1.substring(i, i+1);
+       if(c.equals(s2)){
+         ss+=s3;
+       }
+       else {
+         ss+=c;
+       }
+     }
+     return ss;
+   }
+  }
+
+//return s1.substring(0,str.length()/2);
+
+
+      
