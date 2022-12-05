@@ -1,0 +1,26 @@
+import java.util.Scanner;
+class Main {
+  public static void main(String[] args) {
+    Scanner i = new Scanner(System.in);
+    int l;
+    int w;
+    int h;
+    int r;
+    double d;
+    int ss;
+    System.out.println("Enter square/rectangle,rtriangle,triangle, or circle: ");
+    String e=i.nextLine();
+    if (e.equals("rtriangle")){
+      System.out.println("Enter a symbol: ");
+      String c=i.nextLine();
+      System.out.println("Enter a number for height: ");
+      h=i.nextInt();
+      rtriangle(h, c);
+    }
+    else if (e.equals("triangle")){
+      System.out.println("Enter a symbol: ");
+      String c=i.nextLine();
+      System.out.println("Enter a number for the spacing: ");
+      ss=i.nextInt();
+      triangle(ss, c);
+    }
